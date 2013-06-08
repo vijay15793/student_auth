@@ -1,0 +1,59 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// Place all the styles related to the Students controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Public stylesheet */
+
+/* Colors
+red:          #993120
+green:        #94B26F
+light green:  #B6D491
+yellow:       #F2DC87
+dark brown:   #332318
+light brown:  #4C2516
+*/
+
+html { max-height: 300px;background-image:url('11.jpg'); background-repeat:repeat-x;background-attachment:fixed;
+background-position:center; }
+body {max-width: 800px; margin-left: 140; padding-bottom: 0px;
+  font: 14px Verdana,Lucida,Arial,Helvetica,sans-serif; color: #332318; }
+p, td, ul, ol, li, dl, dt, dd { 
+  font-family: Verdana,Lucida,Arial,Helvetica,sans-serif; }
+.mh {max-height:300px;}
+img { border: none; }
+table {background:#AAFFAA; border:1; border-collapse: collapse; }
+table tr th, table tr td { vertical-align: top; text-align: left; 
+  padding: 3px; }
+a, a:visited { color: #993120; }
+a:hover {color: #0000AA}
+.leftmargin {margin-left:10px;}
+.rightmargin {margin-right:70px;}
+.clear { clear: both; }
+.center { text-align: center; }
+.right {text-align:right;}
+
+/* Structure */
+#header { height: 4em; padding-top: 1em; padding-left: 1em;text-align: left; 
+  background: #339922; color: #FFFFFF; }
+#header h1 { margin: 0; padding: 0; }
+#main { min-height: 500px; background: #B6D691; }
+#navigation { float: left; width: 180px; min-height: 480px; padding: 10px; 
+  background: #94B26F; color: #4C2516; }
+#content { padding: 10px; }
+#footer { clear: both; height: 2.5em; text-align: right;
+  background: #339922; color: #F2DC87; }
+#footer p { margin: 0; padding: 0.5em 1em; }
+
+/* Navigation */
+#navigation ul { list-style: none; margin: 0; padding: 0; }
+#navigation ul li { margin-bottom: 0.5em; }
+#navigation ul ul { margin: 0.5em 0 0 1em; font-size: 0.9em; }
+#navigation a { text-decoration: none; padding: 1px 3px;}
+#navigation a:hover { background: #F2DC87; }
+
+/* Content */
+#content h2 { color: #4C2516; }

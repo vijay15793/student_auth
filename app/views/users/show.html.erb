@@ -1,0 +1,41 @@
+<%@page_title="Show" %>
+
+<%= link_to("<<Back to list", {:action => 'list'})%>
+	<div class="leftmargin">
+		<h2 class="leftmargin">Show user</h2>
+		<br />
+		<table class="leftmargin" border="1">
+			<tr>
+				<th class="center">Name</th>
+				<td><%= @user.name %></td>
+			</tr>
+			<tr>
+				<th class="center">Username</th>
+				<td><%= @user.username %></td>
+			</tr>
+			<tr>
+				<th class="center">Class</th>
+				<td><%= @user.std %></td>
+			</tr>
+			<tr>
+				<th class="center">Section</th>
+				<td><%= @user.section%></td>
+			</tr>
+			<tr>
+				<th class="center">Email Id</th>
+				<td><%= @user.email%></td>
+			</tr>
+			<tr>
+				<th class="center">Mobile No.</th>
+				<td><%= @user.mobile %></td>
+			</tr>
+			<tr>
+				<th class="center">Created</th>
+				<td><%= @user.created_at %></td>
+			</tr>
+			<tr>
+				<th class="center">Upadated</th>
+				<td><%= @user.updated_at %></td>
+			</tr>
+		</table>
+	</div>

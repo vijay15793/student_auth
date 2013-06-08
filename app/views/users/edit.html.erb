@@ -1,0 +1,32 @@
+<%@page_title="Edit" %>
+<%= link_to("<<Back to List", {:action => 'list'} )%>
+
+
+	
+<div>
+	<% if @user && @user.errors.size > 0 %>
+    <div>
+        <h6><%= pluralize(@user.errors.size, "error") %> 
+        prohibited this record from being saved</h6>
+        <p>There were problems with the following fields:</p>
+        <% @user.errors.full_messages.each do |msg| %>
+            <%= msg %><br />
+        <% end %>
+        </div>
+     <% end %>
+     
+	<h2 class="leftmargin">Update user</h2>
+	<br />
+	
+	<%= form_for(:user, :url => {:action => 'update',:id=> @user.id}) do |f| %>
+	<div class="leftmargin">
+	<%= render(:partial => "form", :locals =>{:f => f}) %>
+	</div>
+	<br />
+		<div class="leftmargin"> 
+			<%= submit_tag("Update User")%>
+		</div>
+	
+	<% end %>
+</div>
+
