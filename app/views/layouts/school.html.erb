@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="header">
-      <h1><%= link_to(image_tag("home.jpg", :size =>'50x50'), {:action =>'index'}) %> &nbsp;&nbsp; Students:Data</h1>
+      <h1><%= link_to(image_tag("home.jpg", :size =>'50x50'), {:action =>'index',:controller =>:users}) %> &nbsp;&nbsp; Students:Data</h1>
     </div>
     <div id="main">
       <% if !flash[:notice].blank? %>
@@ -19,7 +19,7 @@
         <%= yield %>
       </div>
     </div>
-    <div id="footer">
+    <div align="bottom" id="footer">
       <p id="copyright">&copy; T-chowk labs/Vijay Singh</p>
     </div>
   </body>

@@ -7,7 +7,7 @@ StudentAuth::Application.routes.draw do
    # end
   #end
   
-  devise_for :users, :skip => [:registrations, :sessions]
+  devise_for :users #,:skip => [:registrations, :sessions]
   #get "users/delete"
   #get "users/update"
   
@@ -15,13 +15,13 @@ StudentAuth::Application.routes.draw do
   as :user do
     #get "/delete" => "users#delete"
     #get "/new" => "users#new"
-   
+    get "/index" => "devise/users#index", :as => :user_signup
     get "/login" => "devise/sessions#new", :as => :new_user_session
-    post "/login" => "devise/sessions#create", :as => :user_session
+    post "/signup" => "devise/sessions#create", :as => :user_session
     delete "/logout" => "devise/sessions#destroy", :as => :destroy_user_session
   end
 
-  root :to => 'school#index'
+  root :to => 'users#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

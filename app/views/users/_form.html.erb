@@ -25,15 +25,30 @@
 			<th>Mobile No.</th>
 			<td><%= f.text_field(:mobile)%></td>
 		</tr>
-		
 		<tr>
-			<th>password</th>
+		<% if can? :manage, User %>
+            <th>Status</th>
+           <td><%=f.text_field(:deleted_flag)%></td>
+           <%end%>
+         </tr>
+         <% if not current_user %>
+		<tr>
+			<th>Password</th>
 			<td><%= f.password_field(:password)%></td>
 		</tr>
 		
 		<tr>
-			<th>password</th>
+			<th>Confirm Password</th>
 			<td><%= f.password_field(:password_confirmation)%></td>
 		</tr>
-		
+		 <%end%>
+		 
 		</table>
+		<% if can? :manage, User %>
+		<div>
+		<% Role.all.each do |role| %>
+        <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+        <%= role.name %><br />
+        <% end %>
+		<div>
+		<% end %>

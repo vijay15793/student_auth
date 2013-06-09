@@ -1,10 +1,13 @@
 <%@page_title="Show" %>
 
+
 <%= link_to("<<Back to list", {:action => 'list'})%>
+	<%= render(:partial => "login")%>
+	<%= render(:partial => "error")%>
 	<div class="leftmargin">
-		<h2 class="leftmargin">Show user</h2>
+		<h2 align="center">Show user</h2>
 		<br />
-		<table class="leftmargin" border="1">
+		<table align="center" border="1">
 			<tr>
 				<th class="center">Name</th>
 				<td><%= @user.name %></td>
@@ -37,5 +40,32 @@
 				<th class="center">Upadated</th>
 				<td><%= @user.updated_at %></td>
 			</tr>
+			<tr>
+			<% if can? :manage, User %>
+            <th class="center">Status</th>
+           <td><%=if @user.deleted_flag then "deleted" else "exist" end%></td>
+           <%end%>
+			</tr>
+			<tr>
+				<th class="center">Role</th>
+				<% if @user.role_ids==[1] %>
+					<td>Admin</td>
+				<% elsif @user.role_ids==[3]%>
+						<td>Student</td>
+						<%else%>
+							<td>Teacher</td>
+			   <%end%>
+			</tr>
+			
 		</table>
+		<br />
+		<div align="center">
+		<% if current_user.username == @user.username or current_user.role_ids==[1]%>
+		 <%= link_to 'Edit', {:action => 'edit', :id => @user.id} %>
+          <% end %>
+          <% if current_user.username == @user.username or current_user.role_ids==[1]%>
+          <%= link_to 'Delete', {:action => 'delete', :id => @user.id} %>
+          <% end %>
+          </div>
+          
 	</div>

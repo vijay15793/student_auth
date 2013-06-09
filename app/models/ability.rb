@@ -7,11 +7,18 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     end
-    if user.has_role? :user
-      can [:read, :update], User do |account|
+    
+    if user.has_role? :teacher
+      can [:read, :update, :delete], User do |account|
         account.email == user.email
       end
     end
+    if user.has_role? :student
+      can [:read, :update ,:delete], User do |account|
+        account.email == user.email
+      end
+     end
+   end
   end
 
     # Define abilities for the passed in user here. For example:
@@ -40,5 +47,5 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  end
+ 
 

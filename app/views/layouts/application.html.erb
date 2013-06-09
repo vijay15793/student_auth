@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StudentAuth</title>
+  <title>Student Auth</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,26 +10,22 @@
  <div align="left">
 <%= link_to("HOME", {:controller => 'users', :action => 'index'} )%>
 
-
-
 </div>
 
-<% [:notice, :error, :alert, :success].each do |level| %>
-  <% unless flash[level].blank? %>
-    <div class="<%= flash_class(level) %>">
-      <%= content_tag :span, flash[level] %>
-    </div>
-  <% end %>
-<% end %>
 
-<h1>School Application</h1>
 
-<% if user_signed_in? %>
-  <p>Signed in as: <%= current_user.email %></p>
-  <p><%= link_to 'Log Out', destroy_user_session_path, :method => 'delete', :confirm => 'Are you sure?' %></p>
-<% else %>
-  <p><%= link_to 'Log In', new_user_session_path %></p>
-<% end %>
+	<% if @user && @user.errors.size > 0 %>
+    <div>
+        <h6><%= pluralize(@user.errors.size, "error") %> 
+        prohibited this record from being saved</h6>
+        <p>There were problems with the following fields:</p>
+        <% @user.errors.full_messages.each do |msg| %>
+            <%= msg %><br />
+        <% end %>
+        </div>
+     <% end %>
+
+
 
 <%= yield %>
 

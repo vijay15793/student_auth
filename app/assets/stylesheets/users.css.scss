@@ -17,9 +17,9 @@ dark brown:   #332318
 light brown:  #4C2516
 */
 
-html { max-height: 300px;background-image:url('11.jpg'); background-repeat:repeat-x;background-attachment:fixed;
+html { max-height: 1000px;background-image:url('11.jpg'); background-repeat:repeat-x;background-attachment:fixed;
 background-position:center; }
-body {max-width: 800px; margin-left: 140; padding-bottom: 0px;
+body {max-width: 950px; margin-left: 85; padding-bottom: 0px;max-height: 900px;
   font: 14px Verdana,Lucida,Arial,Helvetica,sans-serif; color: #332318; }
 p, td, ul, ol, li, dl, dt, dd { 
   font-family: Verdana,Lucida,Arial,Helvetica,sans-serif; }
@@ -44,7 +44,7 @@ a:hover {color: #0000AA}
 #navigation { float: left; width: 180px; min-height: 480px; padding: 10px; 
   background: #94B26F; color: #4C2516; }
 #content { padding: 10px; }
-#footer { clear: both; height: 2.5em; text-align: right;
+#footer { clear: both; height: 2.5em; text-align: right; margin-top: 200px;
   background: #339922; color: #F2DC87; }
 #footer p { margin: 0; padding: 0.5em 1em; }
 

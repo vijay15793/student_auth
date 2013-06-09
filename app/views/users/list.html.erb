@@ -1,38 +1,63 @@
-<h1>Users</h1>
+<%= render(:partial => "login")%>
+<%= render(:partial => "error")%>
 
+<div align="center"><b>User List</b></div> 
+
+<br />
 <table border="1" align="center">
   <thead bgcolor=#AAFFAA >
     <tr>
       <th>Name</th>
       <th>Username</th>
+      <th>Role</th>
       <th>class</th>
       <th>Section</th>
       <th>Mobile</th>
       <th>Email</th>
+      <% if can? :manage, User %>
+      <th>Status</th>
+      <%end%>
       <th>Actions</th>
       
     </tr>
   </thead>
-  <tbody>
+  <tbody bgcolor=#11FF55>
     <% @users.each do |user| %>
       <tr>
       	<td><%= user.name%></td>
       	<td><%= user.username%></td>
-      	<td><%= user.class%></td>
+				<% if user.role_ids==[1] %>
+					<td>Admin</td>
+				<% elsif user.role_ids==[2]%>
+						<td>Student</td>
+						<%else%>
+							<td>Teacher</td>
+			   <%end%>
+      	<td><%= user.std%></td>
       	<td><%= user.section%></td>
       	<td><%= user.mobile%></td>
         <td><%= user.email %></td>
+        <% if can? :manage, User %>
+        <td><%=if user.deleted_flag then "deleted" else "exist" end%></td>
+        <%end%>
         <td>
+          <% if current_user%>
           <%= link_to("Show", {:action => 'show', :id => user.id}) %>
+          <% if current_user.username == user.username or current_user.role_ids==[1]%>
           <%= link_to 'Edit', {:action => 'edit', :id => user.id} %>
+          <% end %>
+          <% if current_user.username == user.username or current_user.role_ids==[1]%>
           <%= link_to 'Delete', {:action => 'delete', :id => user.id} %>
+          <% end %>
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br />
+<% if can? :manage, User %>
 <div align="center">
 	<%= link_to 'New User', 'new' %>
 </div>
-
+<%end%>
