@@ -15,7 +15,10 @@ StudentAuth::Application.routes.draw do
   as :user do
     #get "/delete" => "users#delete"
     #get "/new" => "users#new"
-    get "/index" => "devise/users#index", :as => :user_signup
+    
+    get "/index" => "devise/users#index"
+    get "users/list" => "devise/users#list"
+    get "users/show" => "devise/users#show"
     get "/login" => "devise/sessions#new", :as => :new_user_session
     post "/signup" => "devise/sessions#create", :as => :user_session
     delete "/logout" => "devise/sessions#destroy", :as => :destroy_user_session

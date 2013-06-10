@@ -2,16 +2,15 @@
 
 <%= link_to("<<Back to List", {:action => 'list'} )%>
 
-<%= render(:partial => "login")%>
+
 	
-<div align="center">
-	<h2 class="leftmargin">Delete User</h2>
-	<br />
+<div class="center">
+	<h1 align="center">Delete User</h1>
 	
 	<%= form_for(@user, :url => {:action => 'destroy',:id=> @user.id}) do |f| %>
-	<p class="leftmargin">Are you sure to delete??</p>
-	<p class="leftmargin"><%=@user.name%></p>
-	<div class="leftmargin">
+	<p >Are you sure to delete??</p>
+	<p ><%=@user.name%></p>
+	<div >
 			<%= submit_tag("Delete User")%>
 	</div>
 	

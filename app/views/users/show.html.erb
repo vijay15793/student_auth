@@ -2,52 +2,51 @@
 
 
 <%= link_to("<<Back to list", {:action => 'list'})%>
-	<%= render(:partial => "login")%>
-	<%= render(:partial => "error")%>
-	<div class="leftmargin">
-		<h2 align="center">Show user</h2>
-		<br />
-		<table align="center" border="1">
+	
+	<div >
+		<h2 >User</h2>
+		
+		<table title="User">
 			<tr>
-				<th class="center">Name</th>
+				<th >Name</th>
 				<td><%= @user.name %></td>
 			</tr>
 			<tr>
-				<th class="center">Username</th>
+				<th >Username</th>
 				<td><%= @user.username %></td>
 			</tr>
 			<tr>
-				<th class="center">Class</th>
+				<th >Class</th>
 				<td><%= @user.std %></td>
 			</tr>
 			<tr>
-				<th class="center">Section</th>
+				<th >Section</th>
 				<td><%= @user.section%></td>
 			</tr>
 			<tr>
-				<th class="center">Email Id</th>
+				<th >Email Id</th>
 				<td><%= @user.email%></td>
 			</tr>
 			<tr>
-				<th class="center">Mobile No.</th>
+				<th >Mobile No.</th>
 				<td><%= @user.mobile %></td>
 			</tr>
 			<tr>
-				<th class="center">Created</th>
+				<th >Created</th>
 				<td><%= @user.created_at %></td>
 			</tr>
 			<tr>
-				<th class="center">Upadated</th>
+				<th >Upadated</th>
 				<td><%= @user.updated_at %></td>
 			</tr>
 			<tr>
 			<% if can? :manage, User %>
-            <th class="center">Status</th>
+            <th >Status</th>
            <td><%=if @user.deleted_flag then "deleted" else "exist" end%></td>
            <%end%>
 			</tr>
 			<tr>
-				<th class="center">Role</th>
+				<th >Role</th>
 				<% if @user.role_ids==[1] %>
 					<td>Admin</td>
 				<% elsif @user.role_ids==[3]%>
@@ -59,10 +58,10 @@
 			
 		</table>
 		<br />
-		<div align="center">
+		<div class="margin">
 		<% if current_user.username == @user.username or current_user.role_ids==[1]%>
 		 <%= link_to 'Edit', {:action => 'edit', :id => @user.id} %>
-          <% end %>
+          <% end %>&nbsp;&nbsp;
           <% if current_user.username == @user.username or current_user.role_ids==[1]%>
           <%= link_to 'Delete', {:action => 'delete', :id => @user.id} %>
           <% end %>

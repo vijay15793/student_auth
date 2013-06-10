@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Student Auth</title>
+  <title>Students | <%= @page_title || 'Home' %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
- <div align="left">
-<%= link_to("HOME", {:controller => 'users', :action => 'index'} )%>
-
-</div>
-
-
-
-	<% if @user && @user.errors.size > 0 %>
-    <div>
-        <h6><%= pluralize(@user.errors.size, "error") %> 
-        prohibited this record from being saved</h6>
-        <p>There were problems with the following fields:</p>
-        <% @user.errors.full_messages.each do |msg| %>
-            <%= msg %><br />
-        <% end %>
-        </div>
-     <% end %>
+ <%= render 'layouts/header' %>
+	
+ <%= render 'users/error' %>
 
 
 
+
+
+<div class="container">
 <%= yield %>
-
+<%= render 'layouts/footer' %>
+</div>
 </body>
 </html>
+
+
+	
+
+

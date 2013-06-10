@@ -1,11 +1,10 @@
-<%= render(:partial => "login")%>
-<%= render(:partial => "error")%>
 
-<div align="center"><b>User List</b></div> 
+
+<div class="margin"><b>User List</b></div> 
 
 <br />
-<table border="1" align="center">
-  <thead bgcolor=#AAFFAA >
+<table >
+  <thead >
     <tr>
       <th>Name</th>
       <th>Username</th>
@@ -21,7 +20,7 @@
       
     </tr>
   </thead>
-  <tbody bgcolor=#11FF55>
+  <tbody>
     <% @users.each do |user| %>
       <tr>
       	<td><%= user.name%></td>
@@ -57,7 +56,7 @@
 </table>
 <br />
 <% if can? :manage, User %>
-<div align="center">
+<div class="margin">
 	<%= link_to 'New User', 'new' %>
 </div>
 <%end%>

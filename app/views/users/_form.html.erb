@@ -1,5 +1,5 @@
 
-<table border="1" bgcolor=#AAFFAA>
+<table >
 		<tr>
 			<th>Name</th>
 			<td><%= f.text_field(:name)%></td>
@@ -45,10 +45,11 @@
 		 
 		</table>
 		<% if can? :manage, User %>
-		<div>
+		<div class="margin">
 		<% Role.all.each do |role| %>
         <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
         <%= role.name %><br />
         <% end %>
+        <% end %>
 		<div>
-		<% end %>
+		

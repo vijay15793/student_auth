@@ -2,20 +2,20 @@
 
 <%= link_to("<<Back to List", {:action => 'list'} )%>
 
-<%= render(:partial => "login")%>
+
 	
 <div>
-	<%= render(:partial => "error")%>
+	
      
-	<h2 align="center">Update user</h2>
+	<h2 >Update user</h2>
 	<br />
 	<% if current_user.username == @user.username or current_user.role_ids==[1] %>
 	<%= form_for(:user, :url => {:action => 'update',:id=> @user.id}) do |f| %>
-	<div align="center">
+	<div >
 	<%= render(:partial => "form", :locals =>{:f => f}) %>
 	</div>
 	<br />
-		<div align="center"> 
+		<div > 
 			<%= submit_tag("Update User")%>
 		</div>
 	
